@@ -46,19 +46,17 @@ let response1;
                 setData(response);
                 setResData(response);
                console.log(response);
-               console.log(response1)
-              
-               document.getElementById('result-text').innerHTML=response1
-              
+               sessionStorage.setItem('data',JSON.stringify(response));
+               
+                sessionStorage.setItem('message',response1);
+               document.location.href="/orderstatus/";
+            
                 
           })
 
         }
-        
 
-
-
-    function handle(e){
+     function handle(e){
         const newdata={...data}
         newdata[e.target.id]=e.target.value
         setData(newdata)
@@ -67,14 +65,9 @@ let response1;
 
     }
 
-   
-
     return (
-        
-
-
-
-           <div>
+    
+    <div>
             <form onSubmit={(e)=> submit(e)} >
                <div className="container">
                    
@@ -128,11 +121,12 @@ let response1;
                    </tr>
                          
                  <tr>
-                     <td colSpan="2">
+                     <td  colSpan="2">
 
                      <button onClick={submit} class="sendbtn">SEND</button>
 
                      </td>
+                    
                  </tr>
                 
                    
